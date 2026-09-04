@@ -12,6 +12,9 @@ export default defineConfig({
     },
   },
   build: {
+    // three.js + react-three-fiber is a knowingly large (~870 kB minified)
+    // vendor chunk — it is lazy-loaded and never blocks first paint
+    chunkSizeWarningLimit: 1200,
     rollupOptions: {
       output: {
         manualChunks(id) {
